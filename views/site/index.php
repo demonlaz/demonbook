@@ -1,33 +1,40 @@
 <?php
-use yii\helpers\Html;
-use yii\helpers\Url;
+
 use app\components\CategoryWidget;
+use app\components\OnlainWidget;
 use app\components\PoiskWidget;
 use app\components\BookWidget;
-use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 
 $this->title = 'Главная';
 //use app\controllers\SiteController;
 ?>
 
-<div class="container">
+<div class="container" >
+
+    <?php
+    echo OnlainWidget::widget();
+
+    ?>
+
+
 
     <div class="row">
 
-            <?=CategoryWidget::widget() ?>
+        <?=CategoryWidget::widget() ?>
 
         <?=PoiskWidget::widget()?>
 
-            <?=\app\components\BookWidget::widget(['modelBook'=>$modelBook,'now'=>true])?>
+        <?=\app\components\BookWidget::widget(['modelBook'=>$modelBook,'now'=>true])?>
 
 
-            <?php Pjax::begin();
-            echo \app\components\ChatWidget::widget();
-            Pjax::end();
-            ?>
+        <?php
+        echo \app\components\ChatWidget::widget();
 
-       </div>
+        ?>
+
+    </div>
 
 
 

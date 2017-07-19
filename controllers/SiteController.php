@@ -13,6 +13,7 @@ use app\models\ContactForm;
 use app\models\RegistrForm;
 use app\models\Category;
 
+
 class SiteController extends Controller
 {
     /**
@@ -20,6 +21,8 @@ class SiteController extends Controller
      */
     public function behaviors()
     {
+
+        $this->onlain();
         return [
             'access' => [
                 'class' => AccessControl::className(),
