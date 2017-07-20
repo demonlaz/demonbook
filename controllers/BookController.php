@@ -15,7 +15,7 @@ use app\models\RegistrForm;
 use app\models\Category;
 use app\models\ChatBookForm;
 
-class BookController extends \yii\web\Controller
+class BookController extends SiteController
 {
     public function actionIndex($id=1)
     {   $modelBook=Book::find()->indexBy("id")->asArray()->where(['id'=>$id])->all();

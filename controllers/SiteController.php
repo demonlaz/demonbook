@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Book;
 use app\models\PoiskForm;
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -234,5 +235,20 @@ class SiteController extends Controller
             }
         }
 
+    }
+
+    protected function onlain(){
+
+        if(!Yii::$app->user->isGuest){
+
+            $user=User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
+            $user->dataEndEnter=time();
+            $user->save();
+            return true;
+
+
+        }else {
+            return false;
+        }
     }
 }
