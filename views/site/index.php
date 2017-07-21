@@ -16,6 +16,7 @@ $this->title = 'Главная';
     <?php
     echo OnlainWidget::widget();
 
+
     ?>
 
 
@@ -25,6 +26,7 @@ $this->title = 'Главная';
         <?=CategoryWidget::widget() ?>
 
         <?=PoiskWidget::widget()?>
+
 
         <?=\app\components\BookWidget::widget(['modelBook'=>$modelBook,'now'=>true])?>
 

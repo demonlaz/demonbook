@@ -64,6 +64,11 @@ class SiteController extends Controller
         ];
     }
 
+    public function  actionTest(){
+
+        return $this->render('test');
+    }
+
     /**
      * Displays homepage.
      *
@@ -232,6 +237,29 @@ class SiteController extends Controller
 //        $modelBook->dowload=$dowload;
                 $modelBook->save();
             }
+        }
+
+    }
+
+
+
+    /*
+ * 17.07.15 12 05
+ * отметка в две колонки
+ * пользователй которые онлайн
+ * onlain -string  dateEndEnter-integer
+ * */
+    protected  function onlain(){
+
+        if(!Yii::$app->user->isGuest) {
+            $user = \app\models\User::find()->where(['id' => Yii::$app->user->identity->id])->one();
+            $user->dateEndEnter = time();
+
+            $user->save();
+            return true;
+            // echo "<script >alert('{$date}') </script>";
+        }else{
+        return false;
         }
 
     }

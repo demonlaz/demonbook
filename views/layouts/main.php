@@ -77,7 +77,7 @@ AppAsset::register($this);
         <div class="site-index text-primary">
 
             <div class="jumbotron text-primary">
-                <h1 class="primary" style="text-shadow: 1px 1px 2px black">Электоронная библиотека</h1>
+                <h1 class="primary" style="text-shadow: 1px 1px 2px black">Электронная библиотека</h1>
 
             </div>
 

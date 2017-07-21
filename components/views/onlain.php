@@ -6,13 +6,14 @@
  * Time: 12:22
  */
 ?>
-<div class="row">
+<div class="row"">
 <div class="col-xs-4" style="border: groove;
 border-width:7px;
 border-color: #00CC00;
 border-top-left-radius: 50%;
  padding: 4px;
 height: 200px;
+
 overflow: auto;
 ">
     <h3 class="h3Onlain" >Онлайн</h3>
@@ -33,6 +34,7 @@ overflow: auto;
 </ol>
 
 </div>
+    <?=\app\components\NewsWidget::widget();?>
 </div>
 
 
