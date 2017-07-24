@@ -256,7 +256,7 @@ class SiteController extends Controller
 
         if (!Yii::$app->user->isGuest) {
             $user = \app\models\User::find()->where(['id' => Yii::$app->user->identity->id])->one();
-            $user->dateEndEnter = time();
+            $user->dataEndEnter = time();
 
             $user->save();
             return true;
