@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Добавить книгу', ['create'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Войти в раздел Категории', ['category/index'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Войти в раздел Новости', ['news/index'], ['class' => 'btn btn-primary']) ?>
     </p>
 <?php Pjax::begin();
 

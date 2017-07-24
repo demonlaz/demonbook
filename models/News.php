@@ -31,7 +31,7 @@ class News extends \yii\db\ActiveRecord
         return [
             [['title', 'content'], 'string'],
             [['dateadd'], 'safe'],
-            [['avtor'], 'string', 'max' => 255],
+            [['avtor'],'default', 'value' => $this->addAvtor()],
         ];
     }
 
@@ -42,10 +42,14 @@ class News extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'avtor' => 'Avtor',
-            'content' => 'Content',
-            'dateadd' => 'Dateadd',
+            'title' => 'Тема',
+            'avtor' => 'Автор',
+            'content' => 'Содержание',
+            'dateadd' => 'Дата добавления',
         ];
+    }
+    protected function addAvtor(){
+
+        return Yii::$app->user->identity->login;
     }
 }
