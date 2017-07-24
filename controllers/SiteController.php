@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Book;
 use app\models\PoiskForm;
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -243,24 +244,27 @@ class SiteController extends Controller
 
 
 
+
     /*
  * 17.07.15 12 05
  * отметка в две колонки
  * пользователй которые онлайн
  * onlain -string  dateEndEnter-integer
  * */
-    protected  function onlain(){
+    protected  function onlain()
+    {
 
-        if(!Yii::$app->user->isGuest) {
+        if (!Yii::$app->user->isGuest) {
             $user = \app\models\User::find()->where(['id' => Yii::$app->user->identity->id])->one();
             $user->dateEndEnter = time();
 
             $user->save();
             return true;
             // echo "<script >alert('{$date}') </script>";
-        }else{
-        return false;
+        } else {
+            return false;
         }
-
     }
+
+
 }

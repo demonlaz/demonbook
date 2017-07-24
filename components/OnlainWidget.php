@@ -23,7 +23,7 @@ class OnlainWidget extends Widget
    {
        $time=time();
 
-       $user=User::find()->select('login,onlain,dateEndEnter')->asArray()->all();
+       $user=User::find()->select('login,onlain,dataEndEnter')->asArray()->all();
        return $this->render('onlain',compact('user'));
 
    }

@@ -22,8 +22,8 @@ overflow: auto;
     <?php
 
     foreach ($user as $v){
-     if(time()-$v['dateEndEnter']<=900) {
-         $kogda=Yii::$app->formatter->asRelativeTime($v['dateEndEnter']);
+     if(time()-$v['dataEndEnter']<=900) {
+         $kogda=Yii::$app->formatter->asRelativeTime($v['dataEndEnter']);
          echo "<li class='colorOnlain'><a href=''><span class='login'>{$v['login']}</span> был {$kogda}</a></li>";
 
      }
