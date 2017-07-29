@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Book;
 use app\models\PoiskForm;
 use app\models\User;
+use app\modules\admin\models\Yandex_shet;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -20,8 +21,10 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
+
     public function behaviors()
     {
+
 
         $this->onlain();
         return [
@@ -54,6 +57,7 @@ class SiteController extends Controller
      */
     public function actions()
     {
+
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -265,6 +269,9 @@ class SiteController extends Controller
             return false;
         }
     }
-
+public static function getYandex(){
+    $yandex=Yandex_shet::findOne(1);
+        return  $yandex->yandex;
+}
 
 }

@@ -3,6 +3,8 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Category;
+use app\modules\admin\models\Yandex_shet;
+use app\modules\admin\models\YandexForm;
 use Yii;
 use app\models\Book;
 use app\modules\admin\models\BookSearch;
@@ -17,6 +19,7 @@ use yii\web\UploadedFile;
  */
 class BookController extends Controller
 {
+
     /**
      * @inheritdoc
      */
@@ -162,6 +165,23 @@ class BookController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionZamena(){
+        $model=new YandexForm();
+
+        if($model->load(Yii::$app->request->post()) and $model->validate()){
+
+         $activ=Yandex_shet::findOne(1);
+         $activ->name=$model->name;
+         $activ->yandex=$model->shet;
+         $activ->date_zamena=$model->date_zamena;
+         $activ->save();
+
+            return $this->redirect('/admin/book/index');
+        }
+
+        return $this->render('ynadex_shet_zamena',compact('model'));
+    }
+
     /**
      * Finds the Book model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -177,4 +197,5 @@ class BookController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
 }
