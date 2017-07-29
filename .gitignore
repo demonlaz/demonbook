@@ -31,3 +31,5 @@ tests/_support/_generated
 views/chat/
 /config/db.php
 /runtime/
+/controllers/TestController.php
+/views/test/
